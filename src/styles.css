@@ -1,0 +1,66 @@
+*::before, *::after {
+    box-sizing:  border-box;
+}
+
+/* selects everything and set sizing to border-box */
+
+body {
+    margin:0;
+    background: linear-gradient(to right, #22bce2, #a7139f);
+
+}
+
+.calculator-grid{
+    display: grid;
+    margin-top: 6rem;
+    justify-content: center;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+/* display grid establishes the grids, grid-template columns give us 4 different columns, 6rem is spacing, template rows is height of boxes (first of 7rem is for the top output box of the calculator meaning by default it is 7rem or it will expand to be the full height in case a really big number is input, the next is the sizing of the rest of the buttons*/
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+/* allows the objects with the span-two ID to span two rows */
+
+.output {
+    grid-column: 1 / -1;
+    background: rgba(0, 0, 0, 0.521);
+    /* .75 indicates partial transparency */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    /* spaces elements out as much as possible */
+    padding: .75rem;
+    word-wrap: break-word;
+    word-break: break-all;
+
+}
+/* will allow output to span the entire top row */
+
+.output .previous-operand {
+    color: rgb(255, 255, 255);
+    font-size: 3 rem;
+    font-style: italic;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
